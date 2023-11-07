@@ -1,0 +1,60 @@
+#Source code for flip Bozu:
+
+#HORIZONTAL:
+import cv2
+img1 = cv2.imread(r"C:\Users\RIYA\Pictures\Saved Pictures\Blue_Bozu.jpg", 1)
+img2 =cv2.imread(r"C:\Users\RIYA\Pictures\Saved Pictures\Red_Bozu.jpg", 1)
+img3 = cv2.imread(r"C:\Users\RIYA\Pictures\Saved Pictures\Green_Bozu.jpg", 1)
+
+img1_rotate_90_clockwise = cv2.rotate(img1, cv2.ROTATE_90_CLOCKWISE)
+cv2.imshow('bOZU', img1_rotate_90_clockwise)
+
+img2_rotate_90_clockwise = cv2.rotate(img2, cv2.ROTATE_90_CLOCKWISE)
+cv2.imshow('BoZu', img2_rotate_90_clockwise)
+
+img3_rotate_90_clockwise = cv2.rotate(img3, cv2.ROTATE_90_CLOCKWISE)
+cv2.imshow('BozU', img3_rotate_90_clockwise)
+cv2.waitKey(0)
+
+
+#RED:
+import cv2
+
+img1 = cv2.imread(r"C:\Users\RIYA\Pictures\Saved Pictures\Blue_Bozu.jpg", 1)
+img2 =cv2.imread(r"C:\Users\RIYA\Pictures\Saved Pictures\Red_Bozu.jpg", 1)
+img3 = cv2.imread(r"C:\Users\RIYA\Pictures\Saved Pictures\Green_Bozu.jpg", 1)
+
+img2_rotate_90_clockwise = cv2.rotate(img2, cv2.ROTATE_90_CLOCKWISE)
+cv2.imshow('bOZU', img2_rotate_90_clockwise)
+
+img2_rotate_180 = cv2.rotate(img2, cv2.ROTATE_180)
+cv2.imshow('BoZu', img2_rotate_180))
+
+
+# Code for Contrast and Brightness Bozu:
+import cv2
+import numpy as np
+
+image = cv2.imread(r"D:\RiyaRoot\Class_XI\DPS_School\PROJECTS\CodeBozu\Bozu.png", 1)
+
+alpha = int(input("Enter contrast value: "))
+beta = int(input("Enter brightness value: "))
+
+result = cv2.addWeighted(image, alpha, np.zeros(image.shape, image.dtype), 0, beta)
+
+cv2.imshow("b+c", result)
+cv2.waitKey(0)
+
+
+#Source Code for Thresholded Bozu:
+import cv2
+ 
+originalImage = cv2.imread(r"D:\RiyaRoot\Class_XI\DPS_School\PROJECTS\CodeBozu\Bozu.png", 1)
+grayImage = cv2.cvtColor(originalImage, cv2.COLOR_BGR2GRAY)
+ 
+(thresh, blackAndWhiteImage) = cv2.threshold(grayImage, 127, 255, cv2.THRESH_BINARY)
+ 
+cv2.imshow('Black white image', blackAndWhiteImage)
+ 
+cv2.waitKey(0)
+
