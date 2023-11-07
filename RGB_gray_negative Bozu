@@ -1,0 +1,44 @@
+import cv2
+import numpy as np
+image=cv2.imread(r"C:\Users\Ramya\Desktop\Rayan's Folder\CS Projects\CodeBozu\Bozu.png",1)
+
+def bluify(image): #blue
+    
+    b=image.copy()
+    b[:,:,1]=0
+    b[:,:,2]=0
+    return b
+def greenify(image):  #green
+    
+    g=image.copy()
+    g[:,:,0]=0
+    g[:,:,2]=0
+    return g
+def reddify(image):    #red
+    
+    r=image.copy()
+    r[:,:,0]=0
+    r[:,:,1]=0
+    return r
+cv2.imshow('B-RGB' ,bluify(image))
+cv2.imshow('G-RGB' ,reddify(image))
+cv2.imshow('R-RGB' ,greenify(image))
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+
+
+#gray bozu
+image=cv2.imread(r"C:\Users\Ramya\Desktop\Rayan's Folder\CS Projects\CodeBozu\Bozu.png",1)
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+cv2.imshow('Grayscale', gray)
+cv2.waitKey(0)
+
+
+#negative
+image=cv2.imread(r"C:\Users\Ramya\Desktop\Rayan's Folder\CS Projects\CodeBozu\Bozu.png",1)
+neg= 255-image
+cv2.imshow('negative',neg)
+cv2.waitKey(0)
+
+
