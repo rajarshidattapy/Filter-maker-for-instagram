@@ -1,0 +1,26 @@
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.interpolate import UnivariateSpline
+
+def LookupTable(x, y):
+  spline = UnivariateSpline(x, y)
+  return spline(range(256))
+
+image = cv2.imread(r"C:\Users\RIYA\Pictures\Saved Pictures\nature_original.jpeg", 1) 
+image1 = cv2.cvtColor(image, cv2.COLOR_RGB2BGR) 
+
+
+
+def Summer(img1):
+    increaseLookupTable = LookupTable([0, 64, 128, 256], [0, 80, 160, 256])
+    decreaseLookupTable = LookupTable([0, 64, 128, 256], [0, 50, 100, 256])
+    blue_channel, green_channel,red_channel = cv2.split(img1)
+    red_channel = cv2.LUT(red_channel, decreaseLookupTable).astype(np.uint8)
+    blue_channel = cv2.LUT(blue_channel, increaseLookupTable).astype(np.uint8)
+    win= cv2.merge((blue_channel, green_channel, red_channel))
+    return win
+
+a10 = Summer(image1)
+plt.imshow(a10) 
+plt.show()
