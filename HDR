@@ -1,0 +1,13 @@
+import cv2
+import numpy as np
+import matplotlib.pyplot as plt
+
+image = cv2.imread(r"C:\Users\Ramya\Desktop\Nigga.jpg", 1) 
+image1 = cv2.cvtColor(image, cv2.COLOR_RGB2BGR) 
+
+def HDR(img2):
+    hdr = cv2.detailEnhance(img2, sigma_s=8, sigma_r=0.09)
+    return  hdr
+a8 = HDR(image1)
+plt.imshow(a8) 
+plt.show() 
